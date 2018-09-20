@@ -9,15 +9,18 @@ namespace RPSLS
     class RPSLS
     {
         List<Player> players;
-        List<Gesture> gestures;
+        List<string> gestures;
 
-        public Game()
+
+        public RPSLS()
         {
-            gestures.Add(new Rock);
-            gestures.Add(new Paper);
-            gestures.Add(new Scissors);
-            gestures.Add(new Lizard);
-            gestures.Add(new Spock);
+
+        }
+        private Graph<string> createRulesGraph()
+        {
+            Graph<string> output = new Graph<string>();
+
+            return output;
         }
     }
 }

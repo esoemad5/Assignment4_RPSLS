@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    abstract class Player
+    class Node<T>
     {
-        string name;
-        int score;
+        T data;
+        List<Node<T>> next;
     }
 }

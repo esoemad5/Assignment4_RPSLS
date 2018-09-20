@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    abstract class Player
+    class Graph <T>
     {
-        string name;
-        int score;
+        Node<T> head;
     }
 }
