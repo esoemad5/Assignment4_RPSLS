@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    abstract class Gesture
+    class Gesture
     {
+        string name;
+        List<string> winsAgainst;
+        List<string> defeatedBy;
     }
 }
