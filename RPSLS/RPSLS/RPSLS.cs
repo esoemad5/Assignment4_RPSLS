@@ -10,5 +10,14 @@ namespace RPSLS
     {
         List<Player> players;
         List<Gesture> gestures;
+
+        public Game()
+        {
+            gestures.Add("Rock");
+            gestures.Add("Paper");
+            gestures.Add("Scisors");
+            gestures.Add("Lizard");
+            gestures.Add("Spock");
+        }
     }
 }

@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class Gesture
+    abstract class Gesture
     {
         string name;
         List<string> winsAgainst;
         List<string> defeatedBy;
+
+        public Gesture(string name)
+        {
+            this.name = name;
+            //How to add wins/defeated from just a string?
+        }
     }
 }
