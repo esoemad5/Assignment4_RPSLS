@@ -10,5 +10,10 @@ namespace RPSLS
     {
         string name;
         int score;
+
+
+
+
+
     }
 }

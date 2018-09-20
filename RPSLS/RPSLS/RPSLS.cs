@@ -16,9 +16,9 @@ namespace RPSLS
         {
 
         }
-        private Graph<string> createRulesGraph()
+        private OneWayGraph<string> createRulesGraph()
         {
-            Graph<string> output = new Graph<string>();
+            OneWayGraph<string> output = new OneWayGraph<string>();
 
             return output;
         }

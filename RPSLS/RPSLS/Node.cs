@@ -8,7 +8,16 @@ namespace RPSLS
 {
     class Node<T>
     {
-        T data;
-        List<Node<T>> next;
+        public T data;
+        public List<Node<T>> next;
+
+        public Node(T data)
+        {
+            this.data = data;
+        }
+
+
+
+
     }
 }

@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class Graph <T>
+    class OneWayGraph <T>
     {
         Node<T> head;
+        int size;
+        List<Node<T>> masterList;
     }
 }
