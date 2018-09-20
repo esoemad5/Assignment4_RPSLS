@@ -8,5 +8,10 @@ namespace RPSLS
 {
     class Scissors : Gesture
     {
+        public Scissors()
+        {
+            winsAgainst.Add("");
+            winsAgainst.Add("");
+        }
     }
 }

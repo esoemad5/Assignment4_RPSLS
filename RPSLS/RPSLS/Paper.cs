@@ -8,5 +8,10 @@ namespace RPSLS
 {
     class Paper :Gesture
     {
+        public Paper()
+        {
+            winsAgainst.Add("");
+            winsAgainst.Add("");
+        }
     }
 }

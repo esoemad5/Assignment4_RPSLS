@@ -8,5 +8,12 @@ namespace RPSLS
 {
     class Rock : Gesture
     {
+        public Rock()
+        {
+            name = "Rock";
+            winsAgainst.Add("Lizard");
+            winsAgainst.Add("Scissors");
+
+        }
     }
 }

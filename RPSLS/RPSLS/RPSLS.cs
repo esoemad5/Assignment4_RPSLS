@@ -13,11 +13,11 @@ namespace RPSLS
 
         public Game()
         {
-            gestures.Add("Rock");
-            gestures.Add("Paper");
-            gestures.Add("Scisors");
-            gestures.Add("Lizard");
-            gestures.Add("Spock");
+            gestures.Add(new Rock);
+            gestures.Add(new Paper);
+            gestures.Add(new Scissors);
+            gestures.Add(new Lizard);
+            gestures.Add(new Spock);
         }
     }
 }
