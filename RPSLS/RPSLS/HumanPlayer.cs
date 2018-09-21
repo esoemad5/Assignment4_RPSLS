@@ -15,23 +15,27 @@ namespace RPSLS
         }
         public override Gesture ChooseGesture(List<Gesture> gestureOptions)
         {
-            bool validInput = false;
             ConsoleKeyInfo choice;
-            while (!validInput)
+            while (true)
             {
-                Console.WriteLine("Please chose a gesture to throw (press a number 1 to 5):{0}1. Rock{0}2. Paper{0}3. Scissors{0}4. Lizard{0}5. Spock", Environment.NewLine);
                 Console.WriteLine("Please chose a gesture to throw (press a number 1 to {0}):", gestureOptions.Count);
                 for(int i = 0; i < gestureOptions.Count; i++)
                 {
-                    Console.WriteLine("{0}. {1}", i, gestureOptions[i].Data);
+                    Console.WriteLine("{0}. {1}", i+1, gestureOptions[i].Data);
                 }
                 choice = Console.ReadKey();
-                choice.Key
-
-                return gestureOptions[Char.GetNumericValue(choice.KeyChar)];
+                for(int i = 0; i < gestureOptions.Count; i++)
+                {
+                    if(i+1 == Char.GetNumericValue(choice.KeyChar))
+                    {
+                        return gestureOptions[i];
+                    }
+                }
+                
             }
             
             
         }
+
     }
 }
