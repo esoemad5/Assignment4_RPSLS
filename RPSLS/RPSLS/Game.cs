@@ -58,7 +58,7 @@ namespace RPSLS
             Console.WriteLine("Welcome to Rock Paper Scissors Lizard Spock! You don't even have to have a friend to play with. In the likely case that you have no friends, you can play against me!");
             Console.WriteLine("Games are best {0} out of {1}.", roundsNeededToWin, 2*roundsNeededToWin-1);
 
-            GetPlayers();
+            CreatePlayers();
             Player winner = PlayGame();
             Console.Clear();
             Console.WriteLine("{0} wins!", winner.name);
@@ -72,7 +72,7 @@ namespace RPSLS
             }
             
         }
-        private void GetPlayers()
+        private void CreatePlayers()
         {
             string choice;
             bool validInput = false;
