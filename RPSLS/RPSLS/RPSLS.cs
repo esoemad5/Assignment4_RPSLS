@@ -15,7 +15,6 @@ namespace RPSLS
 
         public RPSLS()
         {
-            makeGesturesList();
             createRulesGraph();
         }
         private void createRulesGraph()
@@ -42,14 +41,6 @@ namespace RPSLS
             lizard.AddToListOfThingsItBeats(paper);
             spock.AddToListOfThingsItBeats(rock);
             spock.AddToListOfThingsItBeats(scissors);
-        }
-        private void makeGesturesList()
-        {
-            gestures.Add("Rock");
-            gestures.Add("Paper");
-            gestures.Add("Scissors");
-            gestures.Add("Lizard");
-            gestures.Add("Spock");
         }
 
     }

@@ -20,9 +20,21 @@ namespace RPSLS
         {
             this.next.Add(nextNode);
         }
-        public T getData()
+        public T GetData()
         {
             return data;
+        }
+
+        public bool Beats(string gesture)
+        {
+            foreach (Node<T> opponent in next)
+            {
+                if (data == opponent.data)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
 
