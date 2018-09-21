@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class Node
+    class Gesture
     {
         private string data;
-        private List<Node> next;
+        private List<Gesture> next;
 
-        public Node(string data)
+        public Gesture(string data)
         {
             this.data = data;
         }
 
-        public void AddToListOfThingsItBeats(Node nextNode) // This node beats nextNode(s)
+        public void AddToListOfThingsItBeats(Gesture nextNode) // This node beats nextNode(s)
         {
             this.next.Add(nextNode);
         }
@@ -27,7 +27,7 @@ namespace RPSLS
 
         public bool Beats(string gesture)
         {
-            foreach (Node thingsItBeats in next)
+            foreach (Gesture thingsItBeats in next)
             {
                 if (data == thingsItBeats.data)
                 {
