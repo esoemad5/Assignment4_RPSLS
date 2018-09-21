@@ -10,7 +10,7 @@ namespace RPSLS
     {
         static void Main(string[] args)
         {
-            RPSLS game = new RPSLS();
+            Game game = new Game();
         }
     }
 }

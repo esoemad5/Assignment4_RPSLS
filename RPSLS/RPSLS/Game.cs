@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class RPSLS
+    class Game
     {
         List<Player> players;
         List<Gesture> gestures;
 
 
-        public RPSLS()
+        public Game()
         {
             gestures = new List<Gesture>();
             players = new List<Player>();
             createRulesGraph();
-            newGame();
+            NewGame();
         }
         private void createRulesGraph()
         {
@@ -45,22 +45,29 @@ namespace RPSLS
             spock.AddToListOfThingsItBeats(scissors);
         }
 
-        private void newGame()
+        private void NewGame()
         {
             Console.WriteLine("Welcome to Rock Paper Scissors Lizard Spock! You don't even have to have a friend to play with. In the likely case that you have none, you can play against me!");
 
             ConsoleKeyInfo choice;
-            bool validInput = false;
-            while (!validInput)
+            while (true)
             {
                 Console.WriteLine("");
                 Console.WriteLine("Please enter number of players:");
                 choice = Console.ReadKey();
-                if(choice.KeyChar == '1' || choice.KeyChar == '2')
+                if(choice.KeyChar == '1')
                 {
-                    validInput = true;
+                   // OnePlayerGame();
+                    break;
+                }
+                if(choice.KeyChar == '2')
+                {
+                   // TwoPlayerGame();
+                    break;
+
                 }
             }
+            Console.WriteLine("Thank you for playing!");
         }
 
     }
