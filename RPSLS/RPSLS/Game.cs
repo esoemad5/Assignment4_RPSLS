@@ -62,10 +62,16 @@ namespace RPSLS
             GetPlayers();
             Player winner = PlayGame();
             Console.Clear();
-
+            Console.WriteLine("{0} wins!", winner.name);
+            if (player2.isComputer)
+            {
+                Console.WriteLine("{0}What a strange game. How about a nice game of chess?{0}", Environment.NewLine);
+            }
+            else
+            {
+                Console.WriteLine("{0}Thank you for playing!{0}", Environment.NewLine);
+            }
             
-
-            Console.WriteLine("Thank you for playing!");
         }
 
         private void GetPlayers()
@@ -133,7 +139,7 @@ namespace RPSLS
                 {
                     Console.WriteLine("Both players threw: {0}! This round is a tie!", player1.gesture.Data);
                 }
-                Console.WriteLine("{0}'s Score:{1}{4}{2}'s Score:{3}{4}{4}Press any key to continue.", player1.name, player1.score, player2.name, player2.score, Environment.NewLine);
+                Console.WriteLine("{4}{0}'s Score: {1}{4}{2}'s Score: {3}{4}{4}Press any key to continue.", player1.name, player1.score, player2.name, player2.score, Environment.NewLine);
                 Console.ReadKey();
             }
             return winner;

@@ -12,6 +12,7 @@ namespace RPSLS
         {
             score = 0;
             this.name = name;
+            isComputer = false;
         }
         public override void ChooseGesture(List<Gesture> gestureOptions)
         {
@@ -19,7 +20,7 @@ namespace RPSLS
             ConsoleKeyInfo choice;
             while (true)
             {
-                Console.WriteLine("{1}, please chose a gesture to throw (press a number 1 to {0}):", gestureOptions.Count, name);
+                Console.WriteLine("{1}, please chose a gesture to throw (press a number 1 to {0}):{2}", gestureOptions.Count, name, Environment.NewLine);
                 for(int i = 0; i < gestureOptions.Count; i++)
                 {
                     Console.WriteLine("{0}. {1}", i+1, gestureOptions[i].Data);

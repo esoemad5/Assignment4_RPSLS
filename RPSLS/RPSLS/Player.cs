@@ -11,6 +11,7 @@ namespace RPSLS
         public string name;
         public int score;
         public Gesture gesture;
+        public bool isComputer;
 
         public abstract void ChooseGesture(List<Gesture> gestureOptions);
     }

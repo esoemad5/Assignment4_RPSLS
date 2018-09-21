@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
+
     class ComputerPlayer:Player
     {
         public ComputerPlayer()
         {
             name = "Joshua";
             score = 0;
+            isComputer = true;
         }
         public override void ChooseGesture(List<Gesture> gestureOptions)
         {
