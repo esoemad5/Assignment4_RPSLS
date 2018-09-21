@@ -14,5 +14,6 @@ namespace RPSLS
         public bool isComputer;
 
         public abstract void ChooseGesture(List<Gesture> gestureOptions);
+
     }
 }

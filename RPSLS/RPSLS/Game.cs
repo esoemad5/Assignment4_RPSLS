@@ -53,7 +53,6 @@ namespace RPSLS
             spock.AddToListOfThingsItBeats(rock);
             spock.AddToListOfThingsItBeats(scissors);
         }
-
         private void NewGame()
         {
             Console.WriteLine("Welcome to Rock Paper Scissors Lizard Spock! You don't even have to have a friend to play with. In the likely case that you have no friends, you can play against me!");
@@ -73,7 +72,6 @@ namespace RPSLS
             }
             
         }
-
         private void GetPlayers()
         {
             string choice;
@@ -90,7 +88,15 @@ namespace RPSLS
                     player1 = new HumanPlayer(Console.ReadLine());
                     player2 = new ComputerPlayer();
                     Console.Clear();
-                    Console.WriteLine("Hello {0}! My name is Joshua. I'll be your opponent today since you don't have any friends.{1}{1}Please press any key to start playing!", player1.name, Environment.NewLine);
+                    if(player1.name == "Joshua")
+                    {
+                        Console.WriteLine("What a coincidence! My name is also Joshua! I'll be your opponent today since you don't have any friends.{1}{1}Please press any key to start playing!", player1.name, Environment.NewLine);
+                        player2.name = "Computer";
+                    }
+                    else
+                    {
+                        Console.WriteLine("Hello {0}! My name is Joshua. I'll be your opponent today since you don't have any friends.{1}{1}Please press any key to start playing!", player1.name, Environment.NewLine);
+                    }
                     Console.ReadKey();
                     
                     validInput = true;
@@ -114,7 +120,6 @@ namespace RPSLS
                 }
             }
         }
-
         private Player PlayGame()
         {
             Player winner = null;
@@ -123,7 +128,8 @@ namespace RPSLS
                 player1.ChooseGesture(gestures);
                 player2.ChooseGesture(gestures);
                 Console.WriteLine("{0} threw {1}! {2} threw {3}!", player1.name, player1.gesture.Data, player2.name, player2.gesture.Data);
-                if (player1.gesture.Beats(player2.gesture)) // I'm so proud of this line. It reads like regular english.
+
+                if (player1.gesture.Beats(player2.gesture))
                 {
                     Console.WriteLine("{0} beats {1}! {2} wins this round!", player1.gesture.Data, player2.gesture.Data, player1.name);
                     winner = player1;
@@ -137,7 +143,7 @@ namespace RPSLS
                 }
                 else
                 {
-                    Console.WriteLine("Both players threw: {0}! This round is a tie!", player1.gesture.Data);
+                    Console.WriteLine("Both players threw {0}! This round is a tie!", player1.gesture.Data);
                 }
                 Console.WriteLine("{4}{0}'s Score: {1}{4}{2}'s Score: {3}{4}{4}Press any key to continue.", player1.name, player1.score, player2.name, player2.score, Environment.NewLine);
                 Console.ReadKey();
@@ -145,14 +151,5 @@ namespace RPSLS
             return winner;
         }
 
-
-        /* Game flow:
-         * players choose gestures
-         * see who wins round
-         * increment points
-         * check score
-         * declare winner (maybe)
-         * play again?
-         */
     }
 }

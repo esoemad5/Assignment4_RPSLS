@@ -17,16 +17,10 @@ namespace RPSLS
             this.data = data;
             thingsThisGestureBeats = new List<Gesture>();
         }
-
         public void AddToListOfThingsItBeats(Gesture nextNode)
         {
             thingsThisGestureBeats.Add(nextNode);
         }
-        public string GetData() // function may not be needed because of Beats
-        {
-            return data;
-        }
-
         public bool Beats(Gesture opponentsGesture)
         {
             foreach (Gesture gestureThisGestureBeats in thingsThisGestureBeats)
@@ -38,8 +32,6 @@ namespace RPSLS
             }
             return false;
         }
-
-
 
     }
 }

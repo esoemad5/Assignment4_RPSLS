@@ -21,5 +21,6 @@ namespace RPSLS
             int i = random.Next(0, 5);
             gesture = gestureOptions[i];
         }
+
     }
 }
