@@ -60,7 +60,7 @@ namespace RPSLS
             Console.WriteLine("Games are best {0} out of {1}.", roundsNeededToWin, 2*roundsNeededToWin-1);
 
             GetPlayers();
-            while(player1.score < roundsNeededToWin || player2.score < roundsNeededToWin)
+            while(player1.score < roundsNeededToWin && player2.score < roundsNeededToWin)
             {
                 player1.ChooseGesture(gestures);
                 player2.ChooseGesture(gestures);
@@ -78,10 +78,12 @@ namespace RPSLS
                 {
                     Console.WriteLine("Both players threw: {0}! This round is a tie!", player1.gesture.Data);
                 }
+                Console.WriteLine("{0}'s Score:{1}{2}{3}'s Score:{4}{2}", player1.name, player1.score, Environment.NewLine, player2.name, player2.score);
             }
 
             Console.WriteLine("Thank you for playing!");
         }
+
         private void GetPlayers()
         {
             string choice;
