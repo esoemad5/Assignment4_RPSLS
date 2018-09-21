@@ -15,6 +15,7 @@ namespace RPSLS
         }
         public override void ChooseGesture(List<Gesture> gestureOptions)
         {
+            Console.Clear();
             ConsoleKeyInfo choice;
             while (true)
             {

@@ -20,7 +20,7 @@ namespace RPSLS
 
         public void AddToListOfThingsItBeats(Gesture nextNode)
         {
-            this.thingsThisGestureBeats.Add(nextNode);
+            thingsThisGestureBeats.Add(nextNode);
         }
         public string GetData() // function may not be needed because of Beats
         {

@@ -61,6 +61,7 @@ namespace RPSLS
 
             GetPlayers();
             Player winner = PlayGame();
+            Console.Clear();
 
             
 
@@ -75,16 +76,22 @@ namespace RPSLS
             {
                 Console.WriteLine("Please enter number of players (enter 1 or 2):");
                 choice = Console.ReadLine();
-
+                
                 if (choice == "1")
                 {
+                    Console.Clear();
                     Console.WriteLine("Player 1: Please enter your name:");
                     player1 = new HumanPlayer(Console.ReadLine());
                     player2 = new ComputerPlayer();
+                    Console.Clear();
+                    Console.WriteLine("Hello {0}! My name is Joshua. I'll be your opponent today since you don't have any friends.{1}{1}Please press any key to start playing!", player1.name, Environment.NewLine);
+                    Console.ReadKey();
+                    
                     validInput = true;
                 }
                 if (choice == "2")
                 {
+                    Console.Clear();
                     Console.WriteLine("Player 1: Please enter your name:");
                     string player1Name = Console.ReadLine();
                     player1 = new HumanPlayer(player1Name);
@@ -109,6 +116,7 @@ namespace RPSLS
             {
                 player1.ChooseGesture(gestures);
                 player2.ChooseGesture(gestures);
+                Console.WriteLine("{0} threw {1}! {2} threw {3}!", player1.name, player1.gesture.Data, player2.name, player2.gesture.Data);
                 if (player1.gesture.Beats(player2.gesture)) // I'm so proud of this line. It reads like regular english.
                 {
                     Console.WriteLine("{0} beats {1}! {2} wins this round!", player1.gesture.Data, player2.gesture.Data, player1.name);
@@ -125,7 +133,8 @@ namespace RPSLS
                 {
                     Console.WriteLine("Both players threw: {0}! This round is a tie!", player1.gesture.Data);
                 }
-                Console.WriteLine("{0}'s Score:{1}{2}{3}'s Score:{4}{2}", player1.name, player1.score, Environment.NewLine, player2.name, player2.score);
+                Console.WriteLine("{0}'s Score:{1}{4}{2}'s Score:{3}{4}{4}Press any key to continue.", player1.name, player1.score, player2.name, player2.score, Environment.NewLine);
+                Console.ReadKey();
             }
             return winner;
         }
