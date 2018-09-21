@@ -10,12 +10,14 @@ namespace RPSLS
     {
         List<Player> players;
         List<Gesture> gestures;
-        OneWayGraph<string> rulesGraph;
 
 
         public RPSLS()
         {
+            gestures = new List<Gesture>();
+            players = new List<Player>();
             createRulesGraph();
+            newGame();
         }
         private void createRulesGraph()
         {
@@ -43,6 +45,23 @@ namespace RPSLS
             spock.AddToListOfThingsItBeats(scissors);
         }
 
+        private void newGame()
+        {
+            Console.WriteLine("Welcome to Rock Paper Scissors Lizard Spock! You don't even have to have a friend to play with. In the likely case that you have none, you can play against me!");
+
+            ConsoleKeyInfo choice;
+            bool validInput = false;
+            while (!validInput)
+            {
+                Console.WriteLine("");
+                Console.WriteLine("Please enter number of players:");
+                choice = Console.ReadKey();
+                if(choice.KeyChar == '1' || choice.KeyChar == '2')
+                {
+                    validInput = true;
+                }
+            }
+        }
 
     }
 }

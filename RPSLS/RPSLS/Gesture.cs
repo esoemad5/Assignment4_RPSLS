@@ -14,6 +14,7 @@ namespace RPSLS
         public Gesture(string data)
         {
             this.data = data;
+            next = new List<Gesture>();
         }
 
         public void AddToListOfThingsItBeats(Gesture nextNode) // This node beats nextNode(s)
