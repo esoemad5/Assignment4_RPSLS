@@ -9,6 +9,7 @@ namespace RPSLS
     class Gesture
     {
         private string data;
+        public string Data => data;
         private List<Gesture> next;
 
         public Gesture(string data)
