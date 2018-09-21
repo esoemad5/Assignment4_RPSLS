@@ -58,7 +58,7 @@ namespace RPSLS
             Console.WriteLine("Welcome to Rock Paper Scissors Lizard Spock! You don't even have to have a friend to play with. In the likely case that you have no friends, you can play against me!");
             Console.WriteLine("Games are best {0} out of {1}.", roundsNeededToWin, 2*roundsNeededToWin-1);
 
-            CreatePlayers();
+            CreatePlayers(GetNumberOfPlayers());
             Player winner = PlayGame();
             Console.Clear();
             Console.WriteLine("{0} wins!", winner.name);
@@ -72,21 +72,35 @@ namespace RPSLS
             }
             
         }
-        private void CreatePlayers()
+        private int GetNumberOfPlayers()
         {
             string choice;
-            bool validInput = false;
-            while (!validInput)
+            while (true)
             {
                 Console.WriteLine("Please enter number of players (enter 1 or 2):");
                 choice = Console.ReadLine();
-                
-                if (choice == "1")
+                if(choice == "1")
+                {
+                    return 1;
+                }
+                else if (choice == "2")
+                {
+                    return 2;
+                }
+                else{
+
+                }
+
+            }
+        }
+        private void CreatePlayers(int numberOfPlayers)
+        {    
+            if (numberOfPlayers == 1)
                 {
                     Console.Clear();
                     Console.WriteLine("Player 1: Please enter your name:");
-                    player1 = new HumanPlayer(Console.ReadLine());
-                    player2 = new ComputerPlayer();
+                    player1 = new Human(Console.ReadLine());
+                    player2 = new Computer();
                     Console.Clear();
                     if(player1.name == "Joshua")
                     {
@@ -98,15 +112,13 @@ namespace RPSLS
                         Console.WriteLine("Hello {0}! My name is Joshua. I'll be your opponent today since you don't have any friends.{1}{1}Please press any key to start playing!", player1.name, Environment.NewLine);
                     }
                     Console.ReadKey();
-                    
-                    validInput = true;
                 }
-                if (choice == "2")
+            if (numberOfPlayers == 2)
                 {
                     Console.Clear();
                     Console.WriteLine("Player 1: Please enter your name:");
                     string player1Name = Console.ReadLine();
-                    player1 = new HumanPlayer(player1Name);
+                    player1 = new Human(player1Name);
                     Console.WriteLine("Player 2: Please enter your name:");
                     string player2Name = Console.ReadLine();
                     while(player1Name == player2Name)
@@ -114,11 +126,8 @@ namespace RPSLS
                         Console.WriteLine("Player 2 must have a different name than Player 1.{0}Please enter a new name.", Environment.NewLine);
                         player2Name = Console.ReadLine();
                     }
-                    player2 = new HumanPlayer(player2Name);
-                    validInput = true;
-
+                    player2 = new Human(player2Name);
                 }
-            }
         }
         private Player PlayGame()
         {

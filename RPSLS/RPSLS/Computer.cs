@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace RPSLS
 {
 
-    class ComputerPlayer:Player
+    class Computer:Player
     {
-        public ComputerPlayer()
+        public Computer()
         {
             name = "Joshua";
             score = 0;

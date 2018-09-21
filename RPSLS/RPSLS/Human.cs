@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class HumanPlayer:Player
+    class Human:Player
     {
-        public HumanPlayer(string name)
+        public Human(string name)
         {
             score = 0;
             this.name = name;
