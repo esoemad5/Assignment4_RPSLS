@@ -13,7 +13,7 @@ namespace RPSLS
             score = 0;
             this.name = name;
         }
-        public override Gesture ChooseGesture(List<Gesture> gestureOptions)
+        public override void ChooseGesture(List<Gesture> gestureOptions)
         {
             ConsoleKeyInfo choice;
             while (true)
@@ -29,7 +29,7 @@ namespace RPSLS
                 {
                     if(i+1 == Char.GetNumericValue(choice.KeyChar))
                     {
-                        return gestureOptions[i];
+                        gesture = gestureOptions[i];
                     }
                 }
                 

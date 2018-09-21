@@ -10,28 +10,28 @@ namespace RPSLS
     {
         private string data;
         public string Data => data;
-        private List<Gesture> next;
+        private List<Gesture> thingsThisGestureBeats;
 
         public Gesture(string data)
         {
             this.data = data;
-            next = new List<Gesture>();
+            thingsThisGestureBeats = new List<Gesture>();
         }
 
         public void AddToListOfThingsItBeats(Gesture nextNode)
         {
-            this.next.Add(nextNode);
+            this.thingsThisGestureBeats.Add(nextNode);
         }
         public string GetData() // function may not be needed because of Beats
         {
             return data;
         }
 
-        public bool Beats(string gesture)
+        public bool Beats(Gesture opponentsGesture)
         {
-            foreach (Gesture thingsItBeats in next)
+            foreach (Gesture gestureThisGestureBeats in thingsThisGestureBeats)
             {
-                if (data == thingsItBeats.data)
+                if (gestureThisGestureBeats.data == opponentsGesture.data )
                 {
                     return true;
                 }

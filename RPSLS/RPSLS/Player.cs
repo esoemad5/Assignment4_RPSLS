@@ -10,8 +10,8 @@ namespace RPSLS
     {
         protected string name;
         public int score;
-        Gesture choice;
+        public Gesture gesture;
 
-        public abstract Gesture ChooseGesture(List<Gesture> gestureOptions);
+        public abstract void ChooseGesture(List<Gesture> gestureOptions);
     }
 }

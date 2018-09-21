@@ -63,7 +63,9 @@ namespace RPSLS
 
             while(player1.score < roundsNeededToWin || player2.score < roundsNeededToWin)
             {
-
+                player1.ChooseGesture(gestures);
+                player2.ChooseGesture(gestures);
+                if (player1.gesture.Beats(player2.gesture)) ;
                 break;
             }
 
@@ -105,6 +107,8 @@ namespace RPSLS
                 }
             }
         }
+
+
 
         /* Game flow:
          * players choose gestures

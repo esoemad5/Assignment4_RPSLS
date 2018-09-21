@@ -13,11 +13,11 @@ namespace RPSLS
             name = "Joshua";
             score = 0;
         }
-        public override Gesture ChooseGesture(List<Gesture> gestureOptions)
+        public override void ChooseGesture(List<Gesture> gestureOptions)
         {
             Random random = new Random();
             int i = random.Next(0, 5);
-            return gestureOptions[i];
+            gesture = gestureOptions[i];
         }
     }
 }
