@@ -9,7 +9,7 @@ namespace RPSLS
     class RPSLS
     {
         List<Player> players;
-        List<Node<string>> gestures;
+        List<Node> gestures;
         OneWayGraph<string> rulesGraph;
 
 
@@ -19,11 +19,11 @@ namespace RPSLS
         }
         private void createRulesGraph()
         {
-            Node<string> rock = new Node<string>("Rock");
-            Node<string> paper = new Node<string>("Paper");
-            Node<string> scissors = new Node<string>("Scissors");
-            Node<string> lizard = new Node<string>("Lizard");
-            Node<string> spock = new Node<string>("Spock");
+            Node rock = new Node("Rock");
+            Node paper = new Node("Paper");
+            Node scissors = new Node("Scissors");
+            Node lizard = new Node("Lizard");
+            Node spock = new Node("Spock");
 
             gestures.Add(rock);
             gestures.Add(paper);
@@ -42,6 +42,7 @@ namespace RPSLS
             spock.AddToListOfThingsItBeats(rock);
             spock.AddToListOfThingsItBeats(scissors);
         }
+
 
     }
 }

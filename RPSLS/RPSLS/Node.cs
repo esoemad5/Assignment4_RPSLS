@@ -6,30 +6,30 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class Node<T>
+    class Node
     {
-        private T data;
-        private List<Node<T>> next;
+        private string data;
+        private List<Node> next;
 
-        public Node(T data)
+        public Node(string data)
         {
             this.data = data;
         }
 
-        public void AddToListOfThingsItBeats(Node<T> nextNode) // this node beats nextNode(s)
+        public void AddToListOfThingsItBeats(Node nextNode) // This node beats nextNode(s)
         {
             this.next.Add(nextNode);
         }
-        public T GetData()
+        public string GetData() // function may not be needed because of Beats
         {
             return data;
         }
 
         public bool Beats(string gesture)
         {
-            foreach (Node<T> opponent in next)
+            foreach (Node thingsItBeats in next)
             {
-                if (data == opponent.data)
+                if (data == thingsItBeats.data)
                 {
                     return true;
                 }
