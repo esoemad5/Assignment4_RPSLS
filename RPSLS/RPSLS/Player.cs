@@ -8,7 +8,7 @@ namespace RPSLS
 {
     abstract class Player
     {
-        protected string name;
+        public string name;
         public int score;
         public Gesture gesture;
 
