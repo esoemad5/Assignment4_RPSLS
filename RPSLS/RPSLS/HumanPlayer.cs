@@ -25,13 +25,12 @@ namespace RPSLS
                 }
                 choice = Console.ReadKey();
                 Console.Clear();
-                Console.WriteLine("{0}", choice.KeyChar);
                 for(int i = 0; i < gestureOptions.Count; i++)
                 {
                     if(i+1 == (int)Char.GetNumericValue(choice.KeyChar))
                     {
                         gesture = gestureOptions[i];
-                        break;
+                        return;
                     }
                 }
                 
