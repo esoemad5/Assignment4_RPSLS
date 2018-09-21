@@ -8,22 +8,23 @@ namespace RPSLS
 {
     class HumanPlayer:Player
     {
-        public HumanPlayer()
+        public HumanPlayer(string name)
         {
             score = 0;
-            name = Console.ReadLine();
+            this.name = name;
         }
         public override Gesture ChooseGesture(List<Gesture> gestureOptions)
         {
             ConsoleKeyInfo choice;
             while (true)
             {
-                Console.WriteLine("Please chose a gesture to throw (press a number 1 to {0}):", gestureOptions.Count);
+                Console.WriteLine("{1}, please chose a gesture to throw (press a number 1 to {0}):", gestureOptions.Count, name);
                 for(int i = 0; i < gestureOptions.Count; i++)
                 {
                     Console.WriteLine("{0}. {1}", i+1, gestureOptions[i].Data);
                 }
                 choice = Console.ReadKey();
+                Console.Clear();
                 for(int i = 0; i < gestureOptions.Count; i++)
                 {
                     if(i+1 == Char.GetNumericValue(choice.KeyChar))

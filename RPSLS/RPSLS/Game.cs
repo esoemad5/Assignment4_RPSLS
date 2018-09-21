@@ -56,38 +56,53 @@ namespace RPSLS
         {
             Console.WriteLine("Welcome to Rock Paper Scissors Lizard Spock! You don't even have to have a friend to play with. In the likely case that you have no friends, you can play against me!");
             Console.WriteLine("Games are best 2 out of 3.");
-            
 
-            ConsoleKeyInfo choice;
-            bool validInput = false;
-            while (!validInput)
-            {
-                Console.WriteLine("Please enter number of players (press 1 or 2):");
-                choice = Console.ReadKey();
-                Console.WriteLine("");
+            GetPlayers();
 
-                if (choice.KeyChar == '1')
-                {
-                    Console.WriteLine("Player 1: Please enter your name:");
-                    player1 = new HumanPlayer();
-                    player2 = new ComputerPlayer();
-                    validInput = true;
-                }
-                if(choice.KeyChar == '2')
-                {
-                    player1 = new HumanPlayer();
-                    player2 = new ComputerPlayer();
-                    validInput = true;
-
-                }
-            }
 
             while(player1.score < 2 || player2.score < 2)
             {
+
                 break;
             }
 
             Console.WriteLine("Thank you for playing!");
+        }
+        private void GetPlayers()
+        {
+            string choice;
+            bool validInput = false;
+            while (!validInput)
+            {
+                Console.WriteLine("Please enter number of players (enter 1 or 2):");
+                choice = Console.ReadLine();
+                //Console.WriteLine("");
+
+                if (choice == "1")
+                {
+                    Console.WriteLine("Player 1: Please enter your name:");
+                    player1 = new HumanPlayer(Console.ReadLine());
+                    player1.ChooseGesture(gestures);
+                    player2 = new ComputerPlayer();
+                    validInput = true;
+                }
+                if (choice == "2")
+                {
+                    Console.WriteLine("Player 1: Please enter your name:");
+                    string player1Name = Console.ReadLine();
+                    player1 = new HumanPlayer(player1Name);
+                    Console.WriteLine("Player 2: Please enter your name:");
+                    string player2Name = Console.ReadLine();
+                    while(player1Name == player2Name)
+                    {
+                        Console.WriteLine("Player 2 must have a different name than Player 1.{0}Please enter a new name.", Environment.NewLine);
+                        player2Name = Console.ReadLine();
+                    }
+                    player2 = new HumanPlayer(player2Name);
+                    validInput = true;
+
+                }
+            }
         }
 
         /* Game flow:
