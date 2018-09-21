@@ -13,7 +13,7 @@ namespace RPSLS
             score = 0;
             name = Console.ReadLine();
         }
-        public override void ChooseGesture()
+        public override Gesture ChooseGesture(List<Gesture> gestureOptions)
         {
             throw new NotImplementedException();
         }

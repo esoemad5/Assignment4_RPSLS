@@ -56,11 +56,14 @@ namespace RPSLS
         {
             Console.WriteLine("Welcome to Rock Paper Scissors Lizard Spock! You don't even have to have a friend to play with. In the likely case that you have no friends, you can play against me!");
             Console.WriteLine("Games are best 2 out of 3.");
+            Random rand = new Random();
+            
 
             ConsoleKeyInfo choice;
             bool validInput = false;
             while (!validInput)
             {
+                Console.WriteLine("Random Number: {0}", rand.Next(0, 5));
                 Console.WriteLine("Please enter number of players (press 1 or 2):");
                 choice = Console.ReadKey();
                 Console.WriteLine("");
@@ -83,7 +86,7 @@ namespace RPSLS
 
             while(player1.score < 2 || player2.score < 2)
             {
-
+                break;
             }
 
             Console.WriteLine("Thank you for playing!");
