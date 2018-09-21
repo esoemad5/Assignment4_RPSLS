@@ -8,9 +8,8 @@ namespace RPSLS
 {
     class OneWayGraph <T>
     {
-        Node<T> head;
-        int size;
-        List<Node<T>> masterList;
+        public Node<T> head;
+        private List<Node<T>> masterList;
 
 
         public OneWayGraph(Node<T> start)
@@ -18,7 +17,7 @@ namespace RPSLS
             head = start;
             masterList.Add(start);
         }
-        public void addToGraph (Node<T> existingNode, Node<T> newNode)
+        public void addToGraph (Node<T> existingNode, Node<T> newNode) // existingNode beats newNode
         {
             masterList.Add(newNode);
             existingNode.addToNext(newNode);

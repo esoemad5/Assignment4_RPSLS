@@ -20,10 +20,22 @@ namespace RPSLS
         }
         private void createRulesGraph()
         {
-            rulesGraph = new OneWayGraph<string>();
+            Node<string> rock = new Node<string>("Rock");
+            Node<string> paper = new Node<string>("Paper");
+            Node<string> scissors = new Node<string>("Scissors");
+            Node<string> lizard = new Node<string>("Lizard");
+            Node<string> spock = new Node<string>("Spock");
+            rulesGraph = new OneWayGraph<string>(rock);
+            rulesGraph.addToGraph(rock, paper);
+            rulesGraph.addToGraph(rock, scissors);
+            scissors.addToNext(paper);
+            rulesGraph.addToGraph(paper, spock);
+            spock.addToNext(rock);
+            spock.addToNext(scissors);
+            rulesGraph.addToGraph( );
 
 
-            
+
         }
         private void makeGesturesList()
         {

@@ -8,15 +8,15 @@ namespace RPSLS
 {
     class Node<T>
     {
-        private T data;
-        private List<Node<T>> next;
+        public T data;
+        public List<Node<T>> next;
 
         public Node(T data)
         {
             this.data = data;
         }
 
-        public void addToNext(Node<T> nextNode)
+        public void addToNext(Node<T> nextNode) // this node beats nextNode(s)
         {
             this.next.Add(nextNode);
         }
