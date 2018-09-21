@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class ComputerPlayer
+    class ComputerPlayer:Player
     {
+        public ComputerPlayer()
+        {
+            name = "Joshua";
+            score = 0;
+        }
+        public override void ChooseGesture()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

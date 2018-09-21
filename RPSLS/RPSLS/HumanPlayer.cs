@@ -8,5 +8,14 @@ namespace RPSLS
 {
     class HumanPlayer:Player
     {
+        public HumanPlayer()
+        {
+            score = 0;
+            name = Console.ReadLine();
+        }
+        public override void ChooseGesture()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

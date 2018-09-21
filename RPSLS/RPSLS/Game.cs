@@ -67,6 +67,7 @@ namespace RPSLS
 
                 if (choice.KeyChar == '1')
                 {
+                    Console.WriteLine("Player 1: Please enter your name:");
                     player1 = new HumanPlayer();
                     player2 = new ComputerPlayer();
                     validInput = true;
@@ -78,6 +79,11 @@ namespace RPSLS
                     validInput = true;
 
                 }
+            }
+
+            while(player1.score < 2 || player2.score < 2)
+            {
+
             }
 
             Console.WriteLine("Thank you for playing!");

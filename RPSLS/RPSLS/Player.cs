@@ -8,8 +8,8 @@ namespace RPSLS
 {
     abstract class Player
     {
-        string name;
-        int score;
+        protected string name;
+        public int score;
         Gesture choice;
 
         public abstract void ChooseGesture();
