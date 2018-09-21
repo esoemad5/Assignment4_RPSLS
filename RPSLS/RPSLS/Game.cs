@@ -60,26 +60,9 @@ namespace RPSLS
             Console.WriteLine("Games are best {0} out of {1}.", roundsNeededToWin, 2*roundsNeededToWin-1);
 
             GetPlayers();
-            while(player1.score < roundsNeededToWin && player2.score < roundsNeededToWin)
-            {
-                player1.ChooseGesture(gestures);
-                player2.ChooseGesture(gestures);
-                if (player1.gesture.Beats(player2.gesture)) // I'm so proud of this line. It reads like regular english.
-                {
-                    Console.WriteLine("{0} beats {1}! {2} wins this round!", player1.gesture.Data, player2.gesture.Data, player1.name);
-                    player1.score++;
-                }
-                else if (player2.gesture.Beats(player1.gesture))
-                {
-                    Console.WriteLine("{0} beats {1}! {2} wins this round!", player2.gesture.Data, player1.gesture.Data, player2.name);
-                    player2.score++;
-                }
-                else
-                {
-                    Console.WriteLine("Both players threw: {0}! This round is a tie!", player1.gesture.Data);
-                }
-                Console.WriteLine("{0}'s Score:{1}{2}{3}'s Score:{4}{2}", player1.name, player1.score, Environment.NewLine, player2.name, player2.score);
-            }
+            Player winner = PlayGame();
+
+            
 
             Console.WriteLine("Thank you for playing!");
         }
@@ -119,6 +102,33 @@ namespace RPSLS
             }
         }
 
+        private Player PlayGame()
+        {
+            Player winner = null;
+            while (player1.score < roundsNeededToWin && player2.score < roundsNeededToWin)
+            {
+                player1.ChooseGesture(gestures);
+                player2.ChooseGesture(gestures);
+                if (player1.gesture.Beats(player2.gesture)) // I'm so proud of this line. It reads like regular english.
+                {
+                    Console.WriteLine("{0} beats {1}! {2} wins this round!", player1.gesture.Data, player2.gesture.Data, player1.name);
+                    winner = player1;
+                    player1.score++;
+                }
+                else if (player2.gesture.Beats(player1.gesture))
+                {
+                    Console.WriteLine("{0} beats {1}! {2} wins this round!", player2.gesture.Data, player1.gesture.Data, player2.name);
+                    winner = player2;
+                    player2.score++;
+                }
+                else
+                {
+                    Console.WriteLine("Both players threw: {0}! This round is a tie!", player1.gesture.Data);
+                }
+                Console.WriteLine("{0}'s Score:{1}{2}{3}'s Score:{4}{2}", player1.name, player1.score, Environment.NewLine, player2.name, player2.score);
+            }
+            return winner;
+        }
 
 
         /* Game flow:
