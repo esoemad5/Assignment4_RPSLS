@@ -17,7 +17,7 @@ namespace RPSLS
             next = new List<Gesture>();
         }
 
-        public void AddToListOfThingsItBeats(Gesture nextNode) // This node beats nextNode(s)
+        public void AddToListOfThingsItBeats(Gesture nextNode)
         {
             this.next.Add(nextNode);
         }

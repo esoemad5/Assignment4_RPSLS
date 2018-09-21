@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+        
 namespace RPSLS
 {
     class Game
     {
-        List<Player> players;
-        List<Gesture> gestures;
-
+        private List<Player> players;
+        private List<Gesture> gestures;
+        private Player player1;
+        private Player player2;
 
         public Game()
         {
@@ -21,54 +23,73 @@ namespace RPSLS
         }
         private void createRulesGraph()
         {
+            // Create Gestures
             Gesture rock = new Gesture("Rock");
             Gesture paper = new Gesture("Paper");
             Gesture scissors = new Gesture("Scissors");
             Gesture lizard = new Gesture("Lizard");
             Gesture spock = new Gesture("Spock");
-
+            
+            // Define rules for Gestures
             gestures.Add(rock);
-            gestures.Add(paper);
-            gestures.Add(scissors);
-            gestures.Add(lizard);
-            gestures.Add(spock);
-
             rock.AddToListOfThingsItBeats(scissors);
             rock.AddToListOfThingsItBeats(lizard);
+
+            gestures.Add(paper);
             paper.AddToListOfThingsItBeats(spock);
             paper.AddToListOfThingsItBeats(rock);
+
+            gestures.Add(scissors);
             scissors.AddToListOfThingsItBeats(lizard);
             scissors.AddToListOfThingsItBeats(paper);
+
+            gestures.Add(lizard);
             lizard.AddToListOfThingsItBeats(spock);
             lizard.AddToListOfThingsItBeats(paper);
+
+            gestures.Add(spock);
             spock.AddToListOfThingsItBeats(rock);
             spock.AddToListOfThingsItBeats(scissors);
         }
 
         private void NewGame()
         {
-            Console.WriteLine("Welcome to Rock Paper Scissors Lizard Spock! You don't even have to have a friend to play with. In the likely case that you have none, you can play against me!");
+            Console.WriteLine("Welcome to Rock Paper Scissors Lizard Spock! You don't even have to have a friend to play with. In the likely case that you have no friends, you can play against me!");
+            Console.WriteLine("Games are best 2 out of 3.");
 
             ConsoleKeyInfo choice;
-            while (true)
+            bool validInput = false;
+            while (!validInput)
             {
-                Console.WriteLine("");
-                Console.WriteLine("Please enter number of players:");
+                Console.WriteLine("Please enter number of players (press 1 or 2):");
                 choice = Console.ReadKey();
-                if(choice.KeyChar == '1')
+                Console.WriteLine("");
+
+                if (choice.KeyChar == '1')
                 {
-                   // OnePlayerGame();
-                    break;
+                    player1 = new HumanPlayer();
+                    player2 = new ComputerPlayer();
+                    validInput = true;
                 }
                 if(choice.KeyChar == '2')
                 {
-                   // TwoPlayerGame();
-                    break;
+                    player1 = new HumanPlayer();
+                    player2 = new ComputerPlayer();
+                    validInput = true;
 
                 }
             }
+
             Console.WriteLine("Thank you for playing!");
         }
 
+        /* Game flow:
+         * players choose gestures
+         * see who wins round
+         * increment points
+         * check score
+         * declare winner (maybe)
+         * play again?
+         */
     }
 }

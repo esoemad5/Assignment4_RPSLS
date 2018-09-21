@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    abstract class Player
+    class ComputerPlayer
     {
-        string name;
-        int score;
-        Gesture choice;
-
-        public abstract void ChooseGesture();
     }
 }
