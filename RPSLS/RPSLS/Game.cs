@@ -13,12 +13,14 @@ namespace RPSLS
         private List<Gesture> gestures;
         private Player player1;
         private Player player2;
+        private int roundsNeededToWin;
 
-        public Game()
+        public Game(int roundsNeededToWin)
         {
             gestures = new List<Gesture>();
             players = new List<Player>();
             createRulesGraph();
+            this.roundsNeededToWin = roundsNeededToWin;
             NewGame();
         }
         private void createRulesGraph()
@@ -55,12 +57,11 @@ namespace RPSLS
         private void NewGame()
         {
             Console.WriteLine("Welcome to Rock Paper Scissors Lizard Spock! You don't even have to have a friend to play with. In the likely case that you have no friends, you can play against me!");
-            Console.WriteLine("Games are best 2 out of 3.");
+            Console.WriteLine("Games are best {0} out of {1}.", roundsNeededToWin, 2*roundsNeededToWin-1);
 
             GetPlayers();
 
-
-            while(player1.score < 2 || player2.score < 2)
+            while(player1.score < roundsNeededToWin || player2.score < roundsNeededToWin)
             {
 
                 break;
