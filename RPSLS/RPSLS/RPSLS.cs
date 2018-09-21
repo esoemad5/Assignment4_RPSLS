@@ -10,17 +10,29 @@ namespace RPSLS
     {
         List<Player> players;
         List<string> gestures;
+        OneWayGraph<string> rulesGraph;
 
 
         public RPSLS()
         {
-
+            makeGesturesList();
+            createRulesGraph();
         }
-        private OneWayGraph<string> createRulesGraph()
+        private void createRulesGraph()
         {
-            OneWayGraph<string> output = new OneWayGraph<string>();
+            rulesGraph = new OneWayGraph<string>();
 
-            return output;
+
+            
         }
+        private void makeGesturesList()
+        {
+            gestures.Add("Rock");
+            gestures.Add("Paper");
+            gestures.Add("Scissors");
+            gestures.Add("Lizard");
+            gestures.Add("Spock");
+        }
+
     }
 }

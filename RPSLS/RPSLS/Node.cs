@@ -8,14 +8,22 @@ namespace RPSLS
 {
     class Node<T>
     {
-        public T data;
-        public List<Node<T>> next;
+        private T data;
+        private List<Node<T>> next;
 
         public Node(T data)
         {
             this.data = data;
         }
 
+        public void addToNext(Node<T> nextNode)
+        {
+            this.next.Add(nextNode);
+        }
+        public T getData()
+        {
+            return data;
+        }
 
 
 
