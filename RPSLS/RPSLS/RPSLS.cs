@@ -9,7 +9,7 @@ namespace RPSLS
     class RPSLS
     {
         List<Player> players;
-        List<string> gestures;
+        List<Node<string>> gestures;
         OneWayGraph<string> rulesGraph;
 
 
@@ -25,17 +25,23 @@ namespace RPSLS
             Node<string> scissors = new Node<string>("Scissors");
             Node<string> lizard = new Node<string>("Lizard");
             Node<string> spock = new Node<string>("Spock");
-            rulesGraph = new OneWayGraph<string>(rock);
-            rulesGraph.addToGraph(rock, paper);
-            rulesGraph.addToGraph(rock, scissors);
-            scissors.addToNext(paper);
-            rulesGraph.addToGraph(paper, spock);
-            spock.addToNext(rock);
-            spock.addToNext(scissors);
-            rulesGraph.addToGraph( );
 
+            gestures.Add(rock);
+            gestures.Add(paper);
+            gestures.Add(scissors);
+            gestures.Add(lizard);
+            gestures.Add(spock);
 
-
+            rock.AddToListOfThingsItBeats(scissors);
+            rock.AddToListOfThingsItBeats(lizard);
+            paper.AddToListOfThingsItBeats(spock);
+            paper.AddToListOfThingsItBeats(rock);
+            scissors.AddToListOfThingsItBeats(lizard);
+            scissors.AddToListOfThingsItBeats(paper);
+            lizard.AddToListOfThingsItBeats(spock);
+            lizard.AddToListOfThingsItBeats(paper);
+            spock.AddToListOfThingsItBeats(rock);
+            spock.AddToListOfThingsItBeats(scissors);
         }
         private void makeGesturesList()
         {
